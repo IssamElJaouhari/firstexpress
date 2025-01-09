@@ -1,29 +1,52 @@
 const express = require('express');
+require('dotenv').config();
 
-require('dotenv').config()
+const port = process.env.PORT || 8008;
+const app = express();
 
-const port = process.env.PORT || 8008
+app.get("/", (req, res) => {
+    res.send('Hello World from index using get');
+});
 
-const app = express()
+app.get("/home", (req, res) => {
+    res.send('Hello World from profile');
 
-// app.get("/",(req,res)=>{
-//     res.end('Hello World from index');
-// })
+});
 
-// app.get("/home",(req,res)=>{
-//     res.end('Hello World from home page');
-// })
-
-// app.get("/services",(req,res)=>{
-//     res.end('Hello World from srvices page');
-// })
-// app.get("/contact",(req,res)=>{
-//     res.end('Hello World from contact');
-// })
-// app.get("*",(req,res)=>{
-//     res.end('404 not found');
-// })
-
-app.listen(port,()=>{
-    console.log(`The server is running,please, open your browser at http://localhost:${port}`);
+app.get("/profile", (req, res)=>{
+    res.send('Hello World from profile');
 })
+
+app.all("/new", (req, res)=>{
+    res.send('Hello World from nw repository');
+})
+
+app.get("/services", (req, res) => {
+    res.send('Hello World from services page');
+});
+
+app.get("/contact", (req, res) => {
+    res.send('Hello World from contact');
+});
+
+app.get("*", (req, res) => {
+    res.status(404).send('404 not found');
+});
+
+app.listen(port, () => {
+    console.log(`The server is running, please open your browser at http://localhost:${port}`);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
