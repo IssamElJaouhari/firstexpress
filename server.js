@@ -4,34 +4,33 @@ require('dotenv').config();
 const port = process.env.PORT || 8008;
 const app = express();
 
-app.get("/", (req, res) => {
-    res.send('Hello World from index using get');
-});
 
-app.get("/home", (req, res) => {
-    res.send('Hello World from profile');
+app.set('view engine', 'pug');
 
-});
+app.set('views','./views');
 
-app.get("/profile", (req, res)=>{
-    res.send('Hello World from profile');
+app.get("/", (req, res)=>{
+    res.render('first_view');
 })
 
-app.all("/new", (req, res)=>{
-    res.send('Hello World from nw repository');
-})
+app.get('/first_template', (req, res)=>{
 
-app.get("/services", (req, res) => {
-    res.send('Hello World from services page');
-});
+    res.render('Home');
+ 
+ });
 
-app.get("/contact", (req, res) => {
-    res.send('Hello World from contact');
-});
+ app.get('/contact', (req, res)=>{
 
-app.get("*", (req, res) => {
-    res.status(404).send('404 not found');
-});
+    res.render('contact');
+ 
+ });
+
+
+ app.get('/services', (req, res)=>{
+
+    res.render('services');
+ 
+ });
 
 app.listen(port, () => {
     console.log(`The server is running, please open your browser at http://localhost:${port}`);
