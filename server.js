@@ -10,7 +10,7 @@ const port = process.env.PORT || 8008;
 
 app.set('view engine', 'pug');
 
-// app.use(express.static(path.join(__dirname,'public')))
+app.use(express.static(path.join(__dirname,'public')))
 
 app.set('views',path.join(__dirname, 'views'));
 
