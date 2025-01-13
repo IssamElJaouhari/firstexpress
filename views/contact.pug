@@ -1,11 +1,29 @@
-doctype html
+extends layout
 
-html
-
-   head
-
-      title = "contact page"
-
-   body
-
-      p.greetings#people  contact issam yn9ss l soukayna!
+block content
+  h1 Contact Us
+  .contact-container
+    .contact-info
+      h2 Get in Touch
+      p We'd love to hear from you
+      .info-item
+        h3 Address
+        p 123 Business Street, Tech City, TC 12345
+      .info-item
+        h3 Email
+        p contact@company.com
+      .info-item
+        h3 Phone
+        p (555) 123-4567
+    .contact-form
+      form
+        .form-group
+          label(for="name") Name
+          input(type="text" id="name" required)
+        .form-group
+          label(for="email") Email
+          input(type="email" id="email" required)
+        .form-group
+          label(for="message") Message
+          textarea(id="message" rows="5" required)
+        button(type="submit") Send Message

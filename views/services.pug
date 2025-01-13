@@ -1,11 +1,17 @@
-doctype html
+extends layout
 
-html
-
-   head
-
-      title = "services page"
-
-   body
-
-      p.greetings#people services hehe!
+block content
+  h1 Our Services
+  .services-grid
+    .service
+      h2 Web Development
+      p Custom web solutions tailored to your needs
+    .service
+      h2 Mobile Apps
+      p Native and cross-platform mobile applications
+    .service
+      h2 Cloud Solutions
+      p Scalable and secure cloud infrastructure
+    .service
+      h2 Consulting
+      p Expert advice for your digital transformation

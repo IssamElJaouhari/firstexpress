@@ -10,22 +10,25 @@ const port = process.env.PORT || 8008;
 
 app.set('view engine', 'pug');
 
+// app.use(express.static(path.join(__dirname,'public')))
+
 app.set('views',path.join(__dirname, 'views'));
 
-// const checkavailablehours = (req, res, next) =>{
-//     const now =  new Date()
-//     const day =now.getDay()
-//     const hours = now.getHours()
+const checkavailablehours = (req, res, next) =>{
+    const now =  new Date()
+    const day =now.getDay()
+    const hours = now.getHours()
 
-//     if (day === 0 || day === 6 || hours < 9 || hours >= 17) {
-//         return res.render('error',{
-//             message : "The web application is only available during working hours (Monday to Friday,  from 9 to 17)."
-//         })
-//         next()
-//     }
-// }
+    if (day === 0 || day === 6 || hours < 9 || hours >= 17) {
+        return res.render('error',{
+            message : "The web application is only available during working hours (Monday to Friday,  from 9 to 17)."
+        })
 
-// app.use(checkavailablehours)
+    }
+    next()
+}
+
+app.use(checkavailablehours)
 
 
 app.get('/', (req, res)=>{

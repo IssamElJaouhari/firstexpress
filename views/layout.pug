@@ -1,0 +1,18 @@
+doctype html
+html(lang="en")
+head 
+meta(charset="UTF-8")
+meta(name="viewport", content="width=device-width, initial-scale=1.0")
+title  #{title} - gomydigital
+link(rel="stylesheet", href="/css/style.css")
+body 
+    nav.navbar
+       .nav-brand gomydigital
+       ul.nav-links
+        li:  a(href="/", class=title === "Home" ? "active":' ') Home 
+        li:  a(href="/services" class= title === "Nos services" ? 'active': ' ') Nos services
+        li:  a(href="/contact" class=title=== "Contact US" ? "active": ' ') Contact US
+    main.container
+        block content
+        footer
+          p &copy; 2025 GOMYDIGITAL. all right reserved.
